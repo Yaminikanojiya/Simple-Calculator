@@ -1,0 +1,69 @@
+<html>
+<head>
+  <script>
+    function calculate(operator) 
+    {
+      let num1 = parseFloat(document.getElementById("number1").value);
+      let num2 = parseFloat(document.getElementById("number2").value);
+      let result;
+
+      switch (operator) {
+        case '+':
+          result = num1 + num2;
+          break;
+        case '-':
+          result = num1 - num2;
+          break;
+        case '*':
+          result = num1 * num2;
+          break;
+          if (num2 === 0) {
+            alert("Cannot divide by zero");
+            return;
+          }
+          result = num1 / num2;
+          break;
+        case '%':
+          result = num1 % num2;
+          break;
+        case '√1': // root of first number
+          if (num1 < 0) {
+            alert("negative number");
+            return;
+          }
+          result = Math.sqrt(num1);
+          break;
+  
+        default:
+          alert("Invalid ");
+          return;
+      }
+      document.getElementById("result").value = result;
+    }
+  </script>
+</head>
+
+<body bgcolor="pink">
+  <center>
+    <h2>Simple Number Calculator</h2>
+    <form>
+      <label>Enter the first number</label><br>
+            <input type="text" id="number1"><br><br>
+
+      <label>Enter the second number</label><br>
+             <input type="text" id="number2"><br><br>
+
+      <label>Select operation to be performed</label><br>
+                <input type="button" value="+" onclick="calculate('+')">
+                <input type="button" value="-" onclick="calculate('-')">
+                 <input type="button" value="*" onclick="calculate('*')">
+                 <input type="button" value="%" onclick="calculate('%')"><br><br>
+
+      <label>Root Operations</label><br>
+            <input type="button" value="√ First Number" onclick="calculate('√1')"><br><br>
+      <label>Result:</label><br>
+            <input type="text" id="result" readonly><br>
+    </form>
+  </center>
+</body>
+</html>
